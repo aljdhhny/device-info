@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>معلومات الجهاز</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f2f2f2;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .info {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>📱 معلومات جهازك</h2>
+
+    <div class="info">
+        <span class="title">النظام:</span>
+        <span id="os">جاري القراءة...</span>
+    </div>
+
+    <div class="info">
+        <span class="title">المتصفح:</span>
+        <span id="browser">جاري القراءة...</span>
+    </div>
+
+    <div class="info">
+        <span class="title">دقة الشاشة:</span>
+        <span id="screen">جاري القراءة...</span>
+    </div>
+
+    <div class="info">
+        <span class="title">اللغة:</span>
+        <span id="language">جاري القراءة...</span>
+    </div>
+
+    <div class="info">
+        <span class="title">عدد أنوية المعالج المتاحة:</span>
+        <span id="cpu">جاري القراءة...</span>
+    </div>
+
+
+    <script>
+
+        // معلومات النظام والمتصفح
+        const userAgent = navigator.userAgent;
+
+        document.getElementById("os").textContent =
+            navigator.platform;
+
+        document.getElementById("browser").textContent =
+            userAgent;
+
+        // دقة الشاشة
+        document.getElementById("screen").textContent =
+            screen.width + " × " + screen.height;
+
+        // لغة الجهاز
+        document.getElementById("language").textContent =
+            navigator.language;
+
+        // عدد أنوية المعالج المتاحة للمتصفح
+        document.getElementById("cpu").textContent =
+            navigator.hardwareConcurrency || "غير متاح";
+
+    </script>
+
+</body>
+
+</html>
