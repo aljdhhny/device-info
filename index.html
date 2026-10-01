@@ -3,88 +3,667 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#17212b">
 
     <title>معلومات الجهاز</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background: #f2f2f2;
+        * {
+            box-sizing: border-box;
         }
 
-        h2 {
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, Tahoma, sans-serif;
+            background: #f1f3f5;
+            color: #222;
+        }
+
+        h1 {
             text-align: center;
+            margin: 10px 0 25px;
+            font-size: 28px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .info {
             background: white;
             padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
+            margin: 8px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
         }
 
         .title {
             font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            color: #444;
+            word-break: break-word;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .not-available {
+            color: #888;
         }
     </style>
 </head>
 
 <body>
 
-    <h2>📱 معلومات جهازك</h2>
+    <h1>📱 معلومات جهازك</h1>
 
-    <div class="info">
-        <span class="title">النظام:</span>
-        <span id="os">جاري القراءة...</span>
+    <div id="loading" class="loading">
+        ⏳ جاري قراءة معلومات الجهاز...
     </div>
 
-    <div class="info">
-        <span class="title">المتصفح:</span>
-        <span id="browser">جاري القراءة...</span>
+    <!-- معلومات الجهاز -->
+    <div class="section">
+
+        <div class="section-title">
+            📱 الجهاز
+        </div>
+
+        <div class="info">
+            <span class="title">الشركة:</span>
+            <span class="value" id="manufacturer">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">الموديل:</span>
+            <span class="value" id="model">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">نظام التشغيل:</span>
+            <span class="value" id="os">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">إصدار Android:</span>
+            <span class="value" id="android">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">المعمارية:</span>
+            <span class="value" id="architecture">جاري القراءة...</span>
+        </div>
+
     </div>
 
-    <div class="info">
-        <span class="title">دقة الشاشة:</span>
-        <span id="screen">جاري القراءة...</span>
+
+    <!-- معلومات الشاشة -->
+    <div class="section">
+
+        <div class="section-title">
+            🖥️ الشاشة
+        </div>
+
+        <div class="info">
+            <span class="title">دقة الشاشة:</span>
+            <span class="value" id="screen">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">كثافة الشاشة:</span>
+            <span class="value" id="density">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">اتجاه الشاشة:</span>
+            <span class="value" id="orientation">جاري القراءة...</span>
+        </div>
+
     </div>
 
-    <div class="info">
-        <span class="title">اللغة:</span>
-        <span id="language">جاري القراءة...</span>
+
+    <!-- معلومات المعالج والذاكرة -->
+    <div class="section">
+
+        <div class="section-title">
+            🧠 المعالج والذاكرة
+        </div>
+
+        <div class="info">
+            <span class="title">أنوية المعالج المتاحة:</span>
+            <span class="value" id="cpu">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">الذاكرة التقريبية:</span>
+            <span class="value" id="ram">جاري القراءة...</span>
+        </div>
+
     </div>
 
-    <div class="info">
-        <span class="title">عدد أنوية المعالج المتاحة:</span>
-        <span id="cpu">جاري القراءة...</span>
+
+    <!-- البطارية -->
+    <div class="section">
+
+        <div class="section-title">
+            🔋 البطارية
+        </div>
+
+        <div class="info">
+            <span class="title">نسبة البطارية:</span>
+            <span class="value" id="battery">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">حالة الشحن:</span>
+            <span class="value" id="charging">جاري القراءة...</span>
+        </div>
+        </div>
+
+
+    <!-- الشبكة -->
+    <div class="section">
+
+        <div class="section-title">
+            🌐 الشبكة والاتصال
+        </div>
+
+        <div class="info">
+            <span class="title">نوع الاتصال:</span>
+            <span class="value" id="connection">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">سرعة الاتصال التقريبية:</span>
+            <span class="value" id="speed">جاري القراءة...</span>
+        </div>
+
     </div>
 
 
-    <script>
+    <!-- المتصفح -->
+    <div class="section">
 
-        // معلومات النظام والمتصفح
-        const userAgent = navigator.userAgent;
+        <div class="section-title">
+            🌍 المتصفح
+        </div>
 
-        document.getElementById("os").textContent =
-            navigator.platform;
+        <div class="info">
+            <span class="title">المتصفح:</span>
+            <span class="value" id="browser">جاري القراءة...</span>
+        </div>
 
-        document.getElementById("browser").textContent =
-            userAgent;
+        <div class="info">
+            <span class="title">اللغة:</span>
+            <span class="value" id="language">جاري القراءة...</span>
+        </div>
 
-        // دقة الشاشة
-        document.getElementById("screen").textContent =
-            screen.width + " × " + screen.height;
+    </div>
 
-        // لغة الجهاز
-        document.getElementById("language").textContent =
-            navigator.language;
 
-        // عدد أنوية المعالج المتاحة للمتصفح
-        document.getElementById("cpu").textContent =
-            navigator.hardwareConcurrency || "غير متاح";
+    <!-- التخزين -->
+    <div class="section">
 
-    </script>
+        <div class="section-title">
+            💾 التخزين
+        </div>
+
+        <div class="info">
+            <span class="title">مساحة التخزين المتاحة للمتصفح:</span>
+            <span class="value" id="storage">جاري القراءة...</span>
+        </div>
+
+    </div>
+
+
+    <!-- معلومات إضافية -->
+    <div class="section">
+
+        <div class="section-title">
+            ℹ️ معلومات إضافية
+        </div>
+
+        <div class="info">
+            <span class="title">حجم نافذة التطبيق:</span>
+            <span class="value" id="windowSize">جاري القراءة...</span>
+        </div>
+
+        <div class="info">
+            <span class="title">User Agent:</span>
+            <span class="value" id="userAgent">جاري القراءة...</span>
+        </div>
+
+    </div>
+
+
+<script>
+
+    // ==========================================
+    // User Agent
+    // ==========================================
+
+    const ua = navigator.userAgent;
+
+
+    // ==========================================
+    // تحديد نظام التشغيل
+    // ==========================================
+
+    let os = "غير معروف";
+    let androidVersion = "غير متاح";
+
+    if (/Android/i.test(ua)) {
+
+        os = "Android";
+
+        const androidMatch = ua.match(/Android\s([0-9.]+)/i);
+
+        if (androidMatch) {
+            androidVersion = androidMatch[1];
+        }
+
+    } else if (/iPhone|iPad|iPod/i.test(ua)) {
+
+        os = "iOS";
+
+    } else if (/Windows/i.test(ua)) {
+
+        os = "Windows";
+
+    } else if (/Macintosh/i.test(ua)) {
+
+        os = "macOS";
+
+    } else if (/Linux/i.test(ua)) {
+
+        os = "Linux";
+    }
+
+
+    // ==========================================
+    // استخراج موديل الجهاز
+    // ==========================================
+
+    let model = "غير متاح";
+    let manufacturer = "غير معروف";
+
+    if (/Android/i.test(ua)) {
+
+        const modelMatch = ua.match(/Android[^;]*;\s*(?:wv;\s*)?([^;)]+?)(?:\s+Build\/[^;)]+)?[;) ]/i);
+
+        if (modelMatch) {
+            model = modelMatch[1].trim();
+        }
+
+        // محاولة معرفة الشركة
+        if (/SM-|Samsung/i.test(ua)) {
+            manufacturer = "Samsung";
+        } else if (/Vivo/i.test(ua)) {
+            manufacturer = "Vivo";
+        } else if (/Xiaomi|Mi\s|Redmi|POCO/i.test(ua)) {
+            manufacturer = "Xiaomi";
+        } else if (/Huawei/i.test(ua)) {
+            manufacturer = "Huawei";
+        } else if (/HONOR/i.test(ua)) {
+            manufacturer = "HONOR";
+        } else if (/OPPO/i.test(ua)) {
+            manufacturer = "OPPO";
+        } else if (/OnePlus/i.test(ua)) {
+            manufacturer = "OnePlus";
+        } else if (/Google/i.test(ua)) {
+            manufacturer = "Google";
+        }
+    }
+
+
+    // ==========================================
+    // النظام
+    // ==========================================
+
+    document.getElementById("os").textContent =
+        os;
+
+    document.getElementById("android").textContent =
+        androidVersion;
+
+
+    // ==========================================
+    // الشركة والموديل
+    // ==========================================
+    document.getElementById("manufacturer").textContent =
+        manufacturer;
+
+    document.getElementById("model").textContent =
+        model;
+
+
+    // ==========================================
+    // المعمارية
+    // ==========================================
+
+    let architecture = "غير متاح";
+
+    if (/aarch64|arm64/i.test(ua)) {
+        architecture = "ARM64 / AArch64";
+    } else if (/arm/i.test(ua)) {
+        architecture = "ARM";
+    } else if (/x86_64|Win64|x64/i.test(ua)) {
+        architecture = "x64";
+    } else if (/x86/i.test(ua)) {
+        architecture = "x86";
+    }
+
+    document.getElementById("architecture").textContent =
+        architecture;
+
+
+    // ==========================================
+    // الشاشة
+    // ==========================================
+
+    const width = screen.width;
+    const height = screen.height;
+    const dpr = window.devicePixelRatio || 1;
+
+    document.getElementById("screen").textContent =
+        width + " × " + height +
+        " بكسل CSS" +
+        " | كثافة: " + dpr;
+
+
+    document.getElementById("density").textContent =
+        dpr + "x";
+
+
+    // ==========================================
+    // اتجاه الشاشة
+    // ==========================================
+
+    function updateOrientation() {
+
+        let orientation = "عمودي";
+
+        if (window.innerWidth > window.innerHeight) {
+            orientation = "أفقي";
+        }
+
+        document.getElementById("orientation").textContent =
+            orientation;
+    }
+
+    updateOrientation();
+
+    window.addEventListener(
+        "resize",
+        updateOrientation
+    );
+
+
+    // ==========================================
+    // أنوية المعالج
+    // ==========================================
+
+    document.getElementById("cpu").textContent =
+        navigator.hardwareConcurrency
+        ? navigator.hardwareConcurrency + " أنوية"
+        : "غير متاح";
+
+
+    // ==========================================
+    // الذاكرة RAM التقريبية
+    // ==========================================
+
+    if (navigator.deviceMemory) {
+
+        document.getElementById("ram").textContent =
+            "حوالي " +
+            navigator.deviceMemory +
+            " GB";
+
+    } else {
+
+        document.getElementById("ram").textContent =
+            "غير متاح من المتصفح";
+    }
+
+
+    // ==========================================
+    // البطارية
+    // ==========================================
+
+    async function getBattery() {
+
+        try {
+
+            if (!navigator.getBattery) {
+
+                document.getElementById("battery").textContent =
+                    "غير متاح في هذا المتصفح";
+
+                document.getElementById("charging").textContent =
+                    "غير متاح";
+
+                return;
+            }
+
+            const battery =
+                await navigator.getBattery();
+
+
+            function updateBattery() {
+
+                const level =
+                    Math.round(battery.level * 100);
+
+                document.getElementById("battery").textContent =
+                    level + "%";
+
+
+                document.getElementById("charging").textContent =
+                    battery.charging
+                    ? "⚡ قيد الشحن"
+                    : "غير متصل بالشاحن";
+            }
+
+
+            updateBattery();
+
+
+            battery.addEventListener(
+                "levelchange",
+                updateBattery
+            );
+
+
+            battery.addEventListener(
+                "chargingchange",
+                updateBattery
+            );
+
+        } catch (error) {
+
+            document.getElementById("battery").textContent =
+                "غير متاح";
+
+            document.getElementById("charging").textContent =
+                "غير متاح";
+        }
+    }
+
+    getBattery();
+
+
+    // ==========================================
+    // معلومات الشبكة
+    // ==========================================
+
+    const connection =
+        navigator.connection ||
+        navigator.mozConnection ||
+        navigator.webkitConnection;
+
+
+    if (connection) {
+        document.getElementById("connection").textContent =
+            connection.effectiveType
+            ? connection.effectiveType
+            : "غير معروف";
+
+
+        document.getElementById("speed").textContent =
+            connection.downlink
+            ? connection.downlink + " Mbps"
+            : "غير متاح";
+
+    } else {
+
+        document.getElementById("connection").textContent =
+            "غير متاح";
+
+        document.getElementById("speed").textContent =
+            "غير متاح";
+    }
+
+
+    // ==========================================
+    // المتصفح
+    // ==========================================
+
+    let browser = "غير معروف";
+
+
+    if (/Edg/i.test(ua)) {
+
+        browser = "Microsoft Edge";
+
+    } else if (/Chrome/i.test(ua)) {
+
+        browser = "Google Chrome";
+
+    } else if (/Firefox/i.test(ua)) {
+
+        browser = "Mozilla Firefox";
+
+    } else if (/Safari/i.test(ua)) {
+
+        browser = "Safari";
+    }
+
+
+    document.getElementById("browser").textContent =
+        browser;
+
+
+    // ==========================================
+    // اللغة
+    // ==========================================
+
+    document.getElementById("language").textContent =
+        navigator.language || "غير متاح";
+
+
+    // ==========================================
+    // التخزين
+    // ==========================================
+
+    async function getStorage() {
+
+        try {
+
+            if (
+                navigator.storage &&
+                navigator.storage.estimate
+            ) {
+
+                const estimate =
+                    await navigator.storage.estimate();
+
+                if (estimate.quota) {
+
+                    const quotaGB =
+                        estimate.quota /
+                        (1024 * 1024 * 1024);
+
+                    document.getElementById("storage").textContent =
+                        quotaGB.toFixed(2) +
+                        " GB تقريبًا";
+
+                } else {
+
+                    document.getElementById("storage").textContent =
+                        "غير متاح";
+                }
+
+            } else {
+
+                document.getElementById("storage").textContent =
+                    "غير متاح";
+            }
+
+        } catch (error) {
+
+            document.getElementById("storage").textContent =
+                "غير متاح";
+        }
+    }
+
+    getStorage();
+
+
+    // ==========================================
+    // حجم نافذة التطبيق
+    // ==========================================
+
+    function updateWindowSize() {
+
+        document.getElementById("windowSize").textContent =
+            window.innerWidth +
+            " × " +
+            window.innerHeight +
+            " بكسل";
+    }
+
+    updateWindowSize();
+
+    window.addEventListener(
+        "resize",
+        updateWindowSize
+    );
+
+
+    // ==========================================
+    // User Agent
+    // ==========================================
+
+    document.getElementById("userAgent").textContent =
+        ua;
+
+
+    // ==========================================
+    // إخفاء رسالة التحميل
+    // ==========================================
+
+    document.getElementById("loading").style.display =
+        "none";
+
+</script>
 
 </body>
 
